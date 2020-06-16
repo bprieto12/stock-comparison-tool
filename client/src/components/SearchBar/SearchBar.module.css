@@ -1,0 +1,22 @@
+
+input {
+    padding: 12px 16px;
+    width: 400px;
+    font-size: 18px;
+    background-color: #D9E2EC;
+    outline: none;
+    border: none;
+    color: #486581;
+    border-radius: 20px;
+}
+
+.SearchBtn {
+    display: inline-block;
+    background-color: #27AB83;
+    color: white;
+    /* height: 20px;
+    width: 20px; */
+    font-size: 18px;
+    padding: 14px 16px;
+}
+

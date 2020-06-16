@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "cd server && node server.js",
+    "client": "cd client && npm run start",
+    "start": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -15,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/bprieto12/stock-comparison-tool/issues"
   },
-  "homepage": "https://github.com/bprieto12/stock-comparison-tool#readme"
+  "homepage": "https://github.com/bprieto12/stock-comparison-tool#readme",
+  "devDependencies": {
+    "concurrently": "^5.2.0"
+  }
 }
