@@ -4,7 +4,8 @@ export const initialState = {
     search_text: "",
     instruments_to_compare: {},
     selected_instrument: {},
-    show_comparison_seach_bar: false
+    show_comparison_seach_bar: false,
+    selected_stock_range: "1d"
 }
 
 export const rootReducer = (state = initialState, action) => {
@@ -29,6 +30,11 @@ export const rootReducer = (state = initialState, action) => {
                 ...state,
                 show_comparison_seach_bar: action.value
             
+            }
+        case actionTypes.UPDATE_STOCK_RANGE:
+            return {
+                ...state,
+                selected_stock_range: action.value
             }
         default:
             return state;

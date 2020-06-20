@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import styles from './PerformancePage.module.css';
-import SelectedStockPerformance from '../SelectedStockPerformance/SelectedStockPerformance';
+import StockName from '../../containers/StockName/StockName';
+import PerformancePlot from '../PerformancePlot/PerformancePlot';
+import PriceIndicatorContainer from '../../containers/PriceIndicatorContainer/PriceIndicatorContainer';
 
 class PerformancePage extends Component {
     
@@ -13,12 +15,26 @@ class PerformancePage extends Component {
         // } else {
         //     pageContents = <SelectedStockPerformance />;
         // }
-        pageContents = <SelectedStockPerformance />;
+        // pageContents = (
+        //     <Fragment>
+        //         <StockName symbol="DIS" full_name="Walt Disney Company" />
+        //         <PerformancePlot />
+        //         <PriceIndicatorContainer />
+        //     </Fragment>
+        // );
 
         return (
             <div className={styles.PerformancePage}>
                 <span className={styles.pageWidth}>
-                { pageContents }
+                <Fragment>
+                    <StockName symbol="DIS" full_name="Walt Disney Company" />
+                    <div style={{float: 'left', width: "54%"}}>
+                        <PerformancePlot />
+                    </div>
+                    <div style={{float: "left", width: "46%"}}>
+                        <PriceIndicatorContainer />
+                    </div>
+                </Fragment>
                 </span>
             </div>
         );

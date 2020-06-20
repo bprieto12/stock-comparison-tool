@@ -1,0 +1,27 @@
+button.RangeBtn {
+    font-size: 16px !important;
+    padding: 12px 32px !important;
+    border-radius: 14px !important;
+    /* margin-left: 16px !important; */
+    float: left;
+    width: 23%;
+    font-weight: 700;
+    margin-left: 12px;
+    color: #334E68 !important;
+    /* display: inline-block !important; */
+    border: none !important;
+    box-shadow: 4px 4px 4px #627D98;
+    cursor: pointer;
+}
+
+/* .RangeBtn:nth-child(1) {
+    margin-left: 0;
+} */
+
+.RangeBtn:hover {
+    background-color: #D9E2EC !important;
+}
+
+.RangeBtn:focus {
+    outline: none;
+}

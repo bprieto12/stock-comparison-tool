@@ -28,6 +28,43 @@ app.get("/api/autoComplete", async (req, res) => {
     }
 })
 
+app.get("/api/stockStatistics", async (req, res) => {
+    // required parameters
+    // * symbol
+
+    if (!req.query.symbol) {
+        res.status(400).send("Stock Profile requires a symbol");
+    } else {
+        let url = new URL("https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-statistics");
+        url.searchParams.set("symbol", req.query.symbol);
+        try {
+            let response = await axios.get(url);
+            res.status(200).json(response.data);
+        } catch (err) {
+            res.status(400).send(`Error in stock statitics request. ${err}`);
+        }
+    }
+})
+
+
+app.get("/api/stockProfile", async (req, res) => {
+    // required parameters
+    // * symbol
+
+    if (!req.query.symbol) {
+        res.status(400).send("Stock Profile requires a symbol");
+    } else {
+        let url = new URL("https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-profile");
+        url.searchParams.set("symbol", req.query.symbol);
+        try {
+            let response = await axios.get(url);
+            res.status(200).json(response.data);
+        } catch (err) {
+            res.status(400).send(`Error in stock profile request. ${err}`);
+        }
+    }
+})
+
 app.get("/api/getCharts", async (req, res) => {
     // required parameters
     // * symbol
