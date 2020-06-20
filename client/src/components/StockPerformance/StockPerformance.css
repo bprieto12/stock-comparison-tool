@@ -1,0 +1,27 @@
+.company-title {
+    font-size: 32px;
+    color: #486581;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%
+}
+
+tr.table-row td {
+    padding: 24px 0;
+    border-bottom: 1px solid#D9E2EC;
+    font-size: 24px;
+}
+
+.stat {
+    font-size: 24px;
+    color:#486581 ;
+    text-align: right;
+}
+
+.attr-title {
+    color: #829AB1;
+    text-align: left;
+    font-weight: 700;
+}
