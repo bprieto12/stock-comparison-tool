@@ -35,10 +35,23 @@ app.get("/api/stockStatistics", async (req, res) => {
     if (!req.query.symbol) {
         res.status(400).send("Stock Profile requires a symbol");
     } else {
-        let url = new URL("https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-statistics");
-        url.searchParams.set("symbol", req.query.symbol);
+        let params = {
+            "symbol": req.query.symbol 
+        }
+
+        const config = {
+            params: params,
+            headers: {
+                "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com",
+                "x-rapidapi-key": "42ced2a81dmsh257ae0cd557d30dp1f5ea0jsn36641705463b",
+                "useQueryString": true
+            }
+        }
+
+        let url = "https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-statistics";
+
         try {
-            let response = await axios.get(url);
+            let response = await axios.get(url, config);
             res.status(200).json(response.data);
         } catch (err) {
             res.status(400).send(`Error in stock statitics request. ${err}`);
@@ -54,10 +67,23 @@ app.get("/api/stockProfile", async (req, res) => {
     if (!req.query.symbol) {
         res.status(400).send("Stock Profile requires a symbol");
     } else {
-        let url = new URL("https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-profile");
-        url.searchParams.set("symbol", req.query.symbol);
+        let params = {
+            "symbol": req.query.symbol 
+        }
+
+        const config = {
+            params: params,
+            headers: {
+                "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com",
+                "x-rapidapi-key": "42ced2a81dmsh257ae0cd557d30dp1f5ea0jsn36641705463b",
+                "useQueryString": true
+            }
+        }
+
+        let url = "https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-profile";
+        
         try {
-            let response = await axios.get(url);
+            let response = await axios.get(url, config);
             res.status(200).json(response.data);
         } catch (err) {
             res.status(400).send(`Error in stock profile request. ${err}`);
@@ -72,7 +98,7 @@ app.get("/api/getCharts", async (req, res) => {
     // * comparisons (a comma separated string of symbols)
     // * interval (5m | 15m | 1d | 1wk | 1mo)
     // * range (1d | 5d | 3mo | 6mo | 1y | 5y | max)
-    console.log(`Symbol: ${req.query.symbol}`);
+    // console.log(`Symbol: ${req.query.symbol}`);
     if (!req.query.symbol) {
         res.status(400).send("Auto Complete requires search text to be sent");
     } else {
@@ -94,10 +120,21 @@ app.get("/api/getCharts", async (req, res) => {
         }
 
         const rangeDomain = ["1d", "5d", "3mo", "6mo", "1y", "5y", "max"];
-        if (req.query.range && intervalDomain.includes(req.query.range)) {
+        if (req.query.range && rangeDomain.includes(req.query.range)) {
             params.range = req.query.range;
+            const range = req.query.range;
+            if (range == "1d") {
+                params.interval = "15m";
+            } else if (range == "5d") {
+                params.interval = "15m";
+            } else if (range == "6mo") {
+                params.interval = "1d";
+            } else if (range == "1y") {
+                params.interval = "1wk";
+            }
         }
 
+        
 
         const config = {
             params: params,
