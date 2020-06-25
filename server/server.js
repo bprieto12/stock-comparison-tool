@@ -1,7 +1,14 @@
 const express = require("express");
 const app = express();
-const port = 6000;
+const port = 7000;
 const axios = require("axios");
+const path = require('path');
+
+app.use(express.static(path.resolve(__dirname, "..", "client/build")));
+
+app.get("/", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "..", "client/build", "index.html"));
+})
 
 app.get("/api/autoComplete", async (req, res) => {
     if (!req.query.search_text) {
@@ -153,4 +160,7 @@ app.get("/api/getCharts", async (req, res) => {
     }
 })
 
-app.listen(port, () => console.log("App started, listening on port " + port));
+app.listen(port, (err) => {
+    if (err) return err;
+    console.log("App started, listening on port " + port)
+});
