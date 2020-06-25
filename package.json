@@ -24,7 +24,8 @@
     "url": "https://github.com/bprieto12/stock-comparison-tool/issues"
   },
   "homepage": "https://github.com/bprieto12/stock-comparison-tool#readme",
-  "devDependencies": {
+  "devDependencies": {},
+  "dependencies": {
     "axios": "^0.19.2",
     "concurrently": "^5.2.0",
     "express": "^4.17.1"
