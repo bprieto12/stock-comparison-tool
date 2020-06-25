@@ -3,8 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "10.16.3",
+    "npm": "6.9.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "cd client && npm run start",
+    "dev": "concurrently \"node index.js\" \"npm run client\"",
+    "start": "node index.js",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "repository": {
     "type": "git",
@@ -15,5 +23,11 @@
   "bugs": {
     "url": "https://github.com/bprieto12/stock-comparison-tool/issues"
   },
-  "homepage": "https://github.com/bprieto12/stock-comparison-tool#readme"
+  "homepage": "https://github.com/bprieto12/stock-comparison-tool#readme",
+  "devDependencies": {},
+  "dependencies": {
+    "axios": "^0.19.2",
+    "concurrently": "^5.2.0",
+    "express": "^4.17.1"
+  }
 }
