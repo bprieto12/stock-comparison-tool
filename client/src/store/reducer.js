@@ -1,10 +1,13 @@
-import actionTypes from './actionTypes';
+import {actionTypes} from './actions';
+import HistoricalStockData from "../classes/HistoricalStockData";
+import StockStatistics from "../classes/StockStatistics";
+import StockProfile from "../classes/StockProfile";
 
 export const initialState = {
     search_text: "",
-    instruments_to_compare: {},
-    selected_instrument: {},
-    show_comparison_seach_bar: false,
+    chart_data: new HistoricalStockData(),
+    stock_statistics: new StockStatistics(),
+    stock_profile: new StockProfile(),
     selected_stock_range: "1d"
 }
 
@@ -14,16 +17,6 @@ export const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 search_text: action.value
-            }
-        case actionTypes.UPDATE_INSTRUMENTS_TO_COMPARE:
-            return {
-                ...state,
-                instruments_to_compare: action.value
-            }
-        case actionTypes.UPDATE_SELECTED_INSTRUMENT:
-            return {
-                ...state,
-                selected_instrument: action.value
             }
         case actionTypes.UPDATE_SHOW_SEARCH_BAR:
             return {
@@ -35,6 +28,19 @@ export const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 selected_stock_range: action.value
+            }
+        case actionTypes.UPDATE_CHART_DATA:
+            return {
+                ...state,
+                chart_data: action.chart_data,
+                selected_stock_range: action.selected_stock_range
+            }
+        case actionTypes.UPDATE_ALL_STOCK_INFO:
+            return {
+                ...state,
+                chart_data: action.chart_data,
+                stock_statistics: action.stock_statistics,
+                stock_profile: action.stock_profile
             }
         default:
             return state;

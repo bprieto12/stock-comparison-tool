@@ -37,8 +37,8 @@ const mapStateToProps = (state) => {
     console.log("in performance plot");
     console.log(state);
     return {
-        open_prices: !state.selected_instrument.chart ? [1,2,3,4,5] : state.selected_instrument.chart.result[0].indicators.quote[0].open,
-        time_stamps: !state.selected_instrument.chart ? [1,2,3,4,5] : state.selected_instrument.chart.result[0].timestamp
+        open_prices: state.chart_data.getValues(),
+        time_stamps: state.chart_data.getTimeRange()
     }
 }
 

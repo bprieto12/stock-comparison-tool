@@ -1,7 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import './RangeBtn.css';
-import actionTypes from '../../store/actionTypes';
+import { updateChartData } from '../../store/actions';
+import { connect } from "react-redux";
 
 const RangeBtn = (props) => {
     let btn_color = {backgroundColor: "white"};
@@ -11,7 +11,7 @@ const RangeBtn = (props) => {
     return (
         <button style={btn_color} 
                 className="RangeBtn"
-                onClick={() => props.updateSelectedRange(props.label)}>
+                onClick={() => props.update(props.label)}>
             {props.label}
         </button>
     );
@@ -19,14 +19,8 @@ const RangeBtn = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        updateSelectedRange: (range) => dispatch({type: actionTypes.UPDATE_STOCK_RANGE, value: range})
+        update: (range) => dispatch(updateChartData(range))
     }
 }
 
-const mapStateToProps = (state) => {
-    return  {
-
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(RangeBtn);
+export default connect(null,mapDispatchToProps)(RangeBtn);

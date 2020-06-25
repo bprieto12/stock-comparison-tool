@@ -8,28 +8,12 @@ import StockPerformance from '../StockPerformance/StockPerformance';
 import About from '../../containers/About/About';
 
 class PerformancePage extends Component {
-    
     render () {
-        let pageContents = null;
-        // console.log(this.props.selected_instrument)
-        // if (!this.props.selected_instrument || Object.keys(this.props.selected_instrument).length == 0)  {
-        //     pageContents = <b>Select an Instrument to Start</b>
-        // } else {
-        //     pageContents = <SelectedStockPerformance />;
-        // }
-        // pageContents = (
-        //     <Fragment>
-        //         <StockName symbol="DIS" full_name="Walt Disney Company" />
-        //         <PerformancePlot />
-        //         <PriceIndicatorContainer />
-        //     </Fragment>
-        // );
-
         return (
             <div className={styles.PerformancePage}>
                 <span className={styles.pageWidth}>
                 <Fragment>
-                    <StockName symbol="DIS" full_name="Walt Disney Company" />
+                    <StockName symbol={this.props.symbol} full_name={this.props.fullname} />
                     <div className={styles.topContainer}>
                         <div style={{float: 'left', width: "54%"}}>
                             <PerformancePlot />
@@ -42,19 +26,30 @@ class PerformancePage extends Component {
                         <StockPerformance/>
                     </div>
                     <div className={styles.fullWidth}>
-                        <About description="The investment seeks to track the total return of the S&P 500® Index. The fund generally invests at least 80% of its net assets (including, for this purpose, any borrowings for investment purposes) in these stocks; typically, the actual percentage is considerably higher. It generally will seek to replicate the performance of the index by giving the same weight to a given stock as the index does"/>
+                        <About description={this.props.description} 
+                               num_employees={this.props.num_employees}
+                               location={this.props.location}
+                               website={this.props.website}
+                               sector={this.props.sector}
+                               industry={this.props.industry} />
                     </div>
                 </Fragment>
                 </span>
             </div>
-            
         );
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        selected_instrument: state.selected_instrument
+        fullname: state.stock_profile.getFullName(),
+        symbol: state.stock_profile.getStockSymbol(),
+        description: state.stock_profile.getBusinessSummary(),
+        num_employees: state.stock_profile.getNumEmployees(),
+        location: `${state.stock_profile.getCity()}, ${state.stock_profile.getState()}`,
+        website: state.stock_profile.getWebsite(),
+        sector: state.stock_profile.getSector(),
+        industry: state.stock_profile.getIndustry()
     }
 }
 

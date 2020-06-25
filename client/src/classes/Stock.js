@@ -12,6 +12,8 @@ class Stock {
     getHistoricalTimeRangeForValues = () => {
         return this.historical_data.getTimeRange();
     }
+
+    
 }
 
 export default Stock;

@@ -4,6 +4,7 @@ import Header from './components/Header/Header';
 import PerformancePage from './components/PerformancePage/PerformancePage';
 import { connect } from 'react-redux';
 
+
 const App = (props) => {
   return (
     <div className="App">
@@ -19,4 +20,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, )(App);
+export default connect(mapStateToProps)(App);
