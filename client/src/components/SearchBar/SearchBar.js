@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import fontawesome from '@forteawesome/fontawesome';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { library } from "@fortawesome/fontawesome-svg-core";
 import { faSearch } from '@fortawesome/fontawesome-free-solid';
 import { updateValues } from '../../store/actions';
 import styles from './SearchBar.module.css';
@@ -14,9 +12,8 @@ class SearchBar extends Component {
 
     render () {
         return (
-            <div style={{textAlign: "left", marginLeft: 48, display: "inline-block"}}>
-                <div style={{display: 'inline-block', position: "relative"}}>
-                   
+            <div>
+                <div className={styles.InputContainer}>
                     <input 
                         className={styles.SearchBar}
                         type="text"
@@ -30,13 +27,12 @@ class SearchBar extends Component {
                         }}
                         onChange={(event) => this.setState({temp_search_text: event.target.value})} />
                         <FontAwesomeIcon 
-                            style={{position: "absolute", right: 12, top: 16, cursor: "pointer"}} 
+                            className={styles.SearchBtn}
                             onClick={() => {
-                                // console.log(`clicked icon: ${this.state.temp_search_text}`)
                                 this.props.update(this.state.temp_search_text, this.props.chart_range_used)
                             }}
                             icon={faSearch}
-                    />
+                        />
                 </div>
             </div>
         );
