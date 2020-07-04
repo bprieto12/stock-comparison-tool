@@ -6,6 +6,8 @@
     text-align: left;
 }
 
+
+
 .pageWidth {
     width: 50%;
 }
@@ -24,3 +26,47 @@
     background-color: white;
 }
 
+.PlotContainer {
+    float: left;
+    width: 54%;
+}
+
+.IndicatorContainer {
+    float: left;
+    width: 46%;
+}
+
+.StockPerformanceContainer {
+    width: 50%;
+    margin-left: auto; 
+    margin-right: auto; 
+    margin-top: 72px; 
+    margin-bottom: 72px;
+}
+
+
+@media (max-width: 900px) {
+    .PerformancePage {
+        padding: 8px;
+    }
+    
+    .pageWidth {
+        width: 100%;
+    }
+
+    .PlotContainer {
+        width: 100%;
+        margin-bottom: 12px;
+    }
+    
+    .IndicatorContainer {
+        width: 100%;
+        margin-bottom: 12px;
+    }
+
+    .StockPerformanceContainer {
+        width: 100%;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}

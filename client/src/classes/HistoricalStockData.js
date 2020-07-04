@@ -9,7 +9,8 @@ class HistoricalStockData {
     }
 
     getTimeRange = () => {
-        return this.time_range;
+        if (!this.time_range) return;
+        return this.time_range.map(d => new Date(d));
     }
 }
 

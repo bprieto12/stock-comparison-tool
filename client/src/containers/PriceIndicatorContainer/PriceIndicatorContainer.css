@@ -1,3 +1,20 @@
 .pic-container {
     margin-left: 80px;
 }
+
+.Recommendation {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 700;
+    background-color: #FFEEEE;
+    color: #A61B1B;
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 14px;
+}
+
+@media (max-width: 900px) {
+    .pic-container {
+        margin-left: 0;
+    }
+}

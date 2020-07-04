@@ -25,3 +25,14 @@ tr.table-row td {
     text-align: left;
     font-weight: 700;
 }
+
+@media (max-width: 900px) {
+    tr.table-row td {
+        font-size: 18px;
+    }
+
+    .company-title {
+        font-size: 28px;
+        margin-bottom: 12px;
+    }
+}

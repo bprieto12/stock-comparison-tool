@@ -8,6 +8,7 @@ import StockPerformance from '../StockPerformance/StockPerformance';
 import About from '../../containers/About/About';
 
 class PerformancePage extends Component {
+    
     render () {
         return (
             <div className={styles.PerformancePage}>
@@ -15,14 +16,15 @@ class PerformancePage extends Component {
                 <Fragment>
                     <StockName symbol={this.props.symbol} full_name={this.props.fullname} />
                     <div className={styles.topContainer}>
-                        <div style={{float: 'left', width: "54%"}}>
+                        <div className={styles.PlotContainer}>
                             <PerformancePlot />
                         </div>
-                        <div style={{float: "left", width: "46%"}}>
+                        <div className={styles.IndicatorContainer}>
+                            
                             <PriceIndicatorContainer />
                         </div>
                     </div>
-                    <div style={{width: "50%", marginLeft: "auto", marginRight: "auto", marginTop: 72, marginBottom: 72}}>
+                    <div className={styles.StockPerformanceContainer}>
                         <StockPerformance/>
                     </div>
                     <div className={styles.fullWidth}>
@@ -49,7 +51,9 @@ const mapStateToProps = (state) => {
         location: `${state.stock_profile.getCity()}, ${state.stock_profile.getState()}`,
         website: state.stock_profile.getWebsite(),
         sector: state.stock_profile.getSector(),
-        industry: state.stock_profile.getIndustry()
+        industry: state.stock_profile.getIndustry(),
+        // recommendation: state.stock_statistics.getPurchaseRecommendation()
+        // recommendation: "Buy"
     }
 }
 

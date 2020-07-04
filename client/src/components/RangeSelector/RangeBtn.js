@@ -9,11 +9,13 @@ const RangeBtn = (props) => {
         btn_color = {backgroundColor: "#9FB3C8", boxShadow: "2px 2px 2px #627D98"};
     }
     return (
-        <button style={btn_color} 
-                className="RangeBtn"
-                onClick={() => props.update(props.label)}>
-            {props.label}
-        </button>
+        <div className="BtnContainer">
+            <button style={btn_color} 
+                    className="RangeBtn"
+                    onClick={() => props.update(props.label)}>
+                {props.label}
+            </button>
+        </div>
     );
 };
 

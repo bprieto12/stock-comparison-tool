@@ -17,13 +17,19 @@ const PriceIndicatorContainer = (props) => {
         volatilityText = "High"
     }
 
-    const open_price = <ThreeItemIndicator low={props.open_low} middle={props.open} high={props.open_high} />
-    const forecastPrice = <ThreeItemIndicator low={props.forecast_low} middle={props.forecast} high={props.forecast_high} />
-    const volatility = <TwoItemIndicator content={volatilityText} subcontent={`Beta: ${props.beta}`} />
-    const p_e = <OneItemIndicator value={props.forwardPE} />
+    const open_price = <ThreeItemIndicator low={`L ${props.open_low}`} middle={props.open} high={`H ${props.open_high}`} />
+    const forecastPrice = <ThreeItemIndicator low={`L ${props.forecast_low}`} middle={props.forecast} high={`H ${props.forecast_high}`} />
+    const volatility = <ThreeItemIndicator middle={volatilityText} low={`Beta: ${props.beta}`} />
+    const p_e = <ThreeItemIndicator middle={props.forwardPE} />
+
+    // const open_price = <ThreeItemIndicator low={`L 73.64`} middle={"75.04"} high={`H 75.09`} />
+    // const forecastPrice = <ThreeItemIndicator low={`L 66.50`} middle={"80.00"} high={`H 95.00`} />
+    // const volatility = <ThreeItemIndicator middle={"Low"} high={`Beta: 0.8`} />
+    // const p_e = <ThreeItemIndicator middle={"28.05"} />
 
     return (
         <div className="pic-container">
+            {!props.recommendation ? "" : <div className="Recommendation">{`Recommendation: ${props.recommendation}`}</div>}
             <PriceIndicator indicatorContent={open_price} indicatorName="Open" />
             <PriceIndicator indicatorContent={forecastPrice} indicatorName="Forecast" />
             <PriceIndicator indicatorContent={p_e} indicatorName="P/E" />
@@ -42,7 +48,9 @@ const mapStateToProps = (state) => {
         forecast_high: state.stock_statistics.getForecastHigh(),
         forecast: state.stock_statistics.getForecast(),
         beta: state.stock_statistics.getBeta(),
-        forwardPE: state.stock_statistics.getPriceToEarnings()
+        forwardPE: state.stock_statistics.getPriceToEarnings(),
+        recommendation: state.stock_statistics.getPurchaseRecommendation()
+        // recommendation: "Buy"
     }
 }
 
