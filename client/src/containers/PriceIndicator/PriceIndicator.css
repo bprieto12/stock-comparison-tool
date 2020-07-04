@@ -1,46 +1,73 @@
 
 .name-container {
-    background-color: white;
+    display: inline-block;
+    /* background-color: white; */
     text-align: center;
-    padding-top: 16px;
-    padding-bottom: 16px;
+    /* /* padding-top: 16px; */
+    padding: 16px;
     font-size: 28px;
     color: #486581;
-    border-bottom-right-radius: 14px;
-    border-bottom-left-radius: 14px;
+    /* border-bottom-right-radius: 14px;
+    border-bottom-left-radius: 14px; */
     font-weight: 700;
 }
 
 .price-indicator-container {
     border-radius: 14px;
-    box-shadow: 4px 4px 4px #627D98;
-    display: inline-block;
+    box-shadow: 4px 4px 4px #627d98;
+    background-color: white;
+
+    /* display: inline-block; */
     /* height: 400px; */
-    width: 180px;
-    margin-left: 48px;
+    /* width: 180px; */
+    /* margin-left: 48px; */
     margin-bottom: 48px;
 }
 
 .content-container {
-    border-top-right-radius: 14px;
-    border-top-left-radius: 14px;
-    background-color: #EFFCF6;
-    color: #147D64;
-    text-align: center;
-    height: 150px;
-    padding: 16px 16px;
+    display: inline-block;
+    /* border-top-right-radius: 14px;
+    border-top-left-radius: 14px; */
+    /* background-color: white; */
+    padding: 16px;
+    /* background-color: #EFFCF6; */
+    /* color: #147D64; */
+    text-align: right;
+    /* height: 150px; */
+    /* padding: 16px 16px; */
 }
 
 .main-content {
+    display: inline-block;
     font-size: 32px;
     font-weight: 700;
+    margin: 0;
 }
 
 .small-content {
+    display: inline-block;
     font-size: 16px;
     font-weight: 700;
 }
 
 .one-value-container {
     padding: 24px;
+}
+
+@media (max-width: 900px) {
+    .small-content {
+        display: none;
+    }
+
+    .price-indicator-container {
+        margin-bottom: 18px;
+    }
+
+    .name-container {
+        font-size: 18px;
+    }
+
+    .main-content {
+        font-size: 16px;
+    }
 }

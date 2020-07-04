@@ -4,9 +4,9 @@ import './PriceIndicator.css';
 const ThreeItemIndicator = (props) => {
     return (
         <Fragment>
-            <div className="small-content">{`H ${props.high}`}</div>
+            <div className="small-content">{props.high}</div>
             <h3 className="main-content">{props.middle}</h3>
-            <div className="small-content">{`L ${props.low}`}</div>
+            <div className="small-content">{props.low}</div>
         </Fragment>
     );
 };

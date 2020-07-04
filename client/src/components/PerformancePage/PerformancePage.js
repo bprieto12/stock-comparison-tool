@@ -15,14 +15,14 @@ class PerformancePage extends Component {
                 <Fragment>
                     <StockName symbol={this.props.symbol} full_name={this.props.fullname} />
                     <div className={styles.topContainer}>
-                        <div style={{float: 'left', width: "54%"}}>
+                        <div className={styles.PlotContainer}>
                             <PerformancePlot />
                         </div>
-                        <div style={{float: "left", width: "46%"}}>
+                        <div className={styles.IndicatorContainer}>
                             <PriceIndicatorContainer />
                         </div>
                     </div>
-                    <div style={{width: "50%", marginLeft: "auto", marginRight: "auto", marginTop: 72, marginBottom: 72}}>
+                    <div className={styles.StockPerformanceContainer}>
                         <StockPerformance/>
                     </div>
                     <div className={styles.fullWidth}>

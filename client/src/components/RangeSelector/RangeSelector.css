@@ -1,6 +1,13 @@
 .RangeSelector {
+    box-sizing: border-box;
     background-color: #BCCCDC;
-    padding: 12px;
+    padding: 12px 0;
     overflow: hidden;
     box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+    .RangeSelector {
+        padding: 8px 0;
+    }
 }

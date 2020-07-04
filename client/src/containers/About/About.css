@@ -29,3 +29,23 @@
     padding-top: 0;
     color: #486581;
 }
+
+@media (max-width: 900px) {
+    .aboutContainer {
+        width: 100%;
+        padding: 8px;
+    }
+
+    .aboutTitle {
+        font-size: 28px;
+    }
+
+    .stock-description {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    .details {
+        width: 100%;
+    }
+}

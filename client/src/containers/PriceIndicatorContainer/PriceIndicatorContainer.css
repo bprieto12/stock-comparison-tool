@@ -1,3 +1,9 @@
 .pic-container {
     margin-left: 80px;
 }
+
+@media (max-width: 900px) {
+    .pic-container {
+        margin-left: 0;
+    }
+}

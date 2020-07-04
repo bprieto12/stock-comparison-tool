@@ -17,10 +17,10 @@ const PriceIndicatorContainer = (props) => {
         volatilityText = "High"
     }
 
-    const open_price = <ThreeItemIndicator low={props.open_low} middle={props.open} high={props.open_high} />
-    const forecastPrice = <ThreeItemIndicator low={props.forecast_low} middle={props.forecast} high={props.forecast_high} />
-    const volatility = <TwoItemIndicator content={volatilityText} subcontent={`Beta: ${props.beta}`} />
-    const p_e = <OneItemIndicator value={props.forwardPE} />
+    const open_price = <ThreeItemIndicator low={`L ${props.open_low}`} middle={props.open} high={`H ${props.open_high}`} />
+    const forecastPrice = <ThreeItemIndicator low={`L ${props.forecast_low}`} middle={props.forecast} high={`H ${props.forecast_high}`} />
+    const volatility = <ThreeItemIndicator middle={volatilityText} low={`Beta: ${props.beta}`} />
+    const p_e = <ThreeItemIndicator middle={props.forwardPE} />
 
     return (
         <div className="pic-container">

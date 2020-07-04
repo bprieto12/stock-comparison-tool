@@ -1,0 +1,12 @@
+.Details {
+    color: #829AB1;
+    font-size: 24px; 
+    text-align: center; 
+    margin-bottom: 32px;
+}
+
+@media (max-width: 900px) {
+    .Details {
+        font-size: 18px;
+    }
+}
