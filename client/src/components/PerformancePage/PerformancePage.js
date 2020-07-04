@@ -8,6 +8,7 @@ import StockPerformance from '../StockPerformance/StockPerformance';
 import About from '../../containers/About/About';
 
 class PerformancePage extends Component {
+    
     render () {
         return (
             <div className={styles.PerformancePage}>
@@ -19,6 +20,7 @@ class PerformancePage extends Component {
                             <PerformancePlot />
                         </div>
                         <div className={styles.IndicatorContainer}>
+                            
                             <PriceIndicatorContainer />
                         </div>
                     </div>
@@ -49,7 +51,9 @@ const mapStateToProps = (state) => {
         location: `${state.stock_profile.getCity()}, ${state.stock_profile.getState()}`,
         website: state.stock_profile.getWebsite(),
         sector: state.stock_profile.getSector(),
-        industry: state.stock_profile.getIndustry()
+        industry: state.stock_profile.getIndustry(),
+        // recommendation: state.stock_statistics.getPurchaseRecommendation()
+        // recommendation: "Buy"
     }
 }
 

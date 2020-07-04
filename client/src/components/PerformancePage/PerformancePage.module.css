@@ -6,6 +6,8 @@
     text-align: left;
 }
 
+
+
 .pageWidth {
     width: 50%;
 }
@@ -38,8 +40,8 @@
     width: 50%;
     margin-left: auto; 
     margin-right: auto; 
-    /* margin-top: 72px; 
-    margin-bottom: 72px; */
+    margin-top: 72px; 
+    margin-bottom: 72px;
 }
 
 
@@ -64,5 +66,7 @@
 
     .StockPerformanceContainer {
         width: 100%;
+        margin-top: 0;
+        margin-bottom: 0;
     }
 }
