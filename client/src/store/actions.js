@@ -2,6 +2,7 @@
 import { getChartData, getStockProfile, getStockStats } from "../data/accessors/accessorMethods";
 
 export const actionTypes = {
+    UPDATE_SHOW_LOADING: 'UPDATE_SHOW_LOADING',
     UPDATE_SEARCH_TEXT: 'UPDATE_SEARCH_TEXT',
     UPDATE_CHART_DATA: 'UPDATE_CHART_DATA',
     UPDATE_ALL_STOCK_INFO: 'UPDATE_ALL_STOCK_INFO'
@@ -10,6 +11,7 @@ export const actionTypes = {
 export const updateValues =  (search_text, range_used) => {
     return (dispatch, getState) => {
         // console.log('updating values');
+        dispatch({type: actionTypes.UPDATE_SHOW_LOADING, value: true});
         dispatch({type: actionTypes.UPDATE_SEARCH_TEXT, value: search_text});
         try {
             const chartPromise = getChartData(search_text, range_used);
@@ -21,10 +23,12 @@ export const updateValues =  (search_text, range_used) => {
                     stock_statistics: results[1],
                     stock_profile: results[2]
                     });
+                    dispatch({type: actionTypes.UPDATE_SHOW_LOADING, value: false});
                 // console.log(getState());
             })
             
         } catch (err) {
+            dispatch({type: actionTypes.UPDATE_SHOW_LOADING, value: false});
             console.log(err);
         }
     }

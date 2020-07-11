@@ -52,8 +52,7 @@ const mapStateToProps = (state) => {
         website: state.stock_profile.getWebsite(),
         sector: state.stock_profile.getSector(),
         industry: state.stock_profile.getIndustry(),
-        // recommendation: state.stock_statistics.getPurchaseRecommendation()
-        // recommendation: "Buy"
+        
     }
 }
 

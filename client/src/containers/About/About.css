@@ -33,7 +33,7 @@
 @media (max-width: 900px) {
     .aboutContainer {
         width: 100%;
-        padding: 8px;
+        padding: 24px 16px;
     }
 
     .aboutTitle {

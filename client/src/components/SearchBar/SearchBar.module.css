@@ -24,6 +24,11 @@ input.SearchBar {
     right: 16px;
     top: 14px;
     cursor: pointer;
+    color: #829AB1;
+}
+
+.SearchBtn:hover {
+    color: #334E68;
 }
 
 @media (max-width: 900px) {
