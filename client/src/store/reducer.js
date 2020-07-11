@@ -8,11 +8,17 @@ export const initialState = {
     chart_data: new HistoricalStockData(),
     stock_statistics: new StockStatistics(),
     stock_profile: new StockProfile(),
-    selected_stock_range: "1d"
+    selected_stock_range: "1d",
+    loading: false
 }
 
 export const rootReducer = (state = initialState, action) => {
     switch (action.type) {
+        case actionTypes.UPDATE_SHOW_LOADING:
+            return {
+                ...state,
+                loading: action.value
+            }
         case actionTypes.UPDATE_SEARCH_TEXT:
             return {
                 ...state,
