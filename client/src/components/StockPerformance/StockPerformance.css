@@ -5,11 +5,11 @@
 
 table {
     border-collapse: collapse;
-    width: 100%
+    width:95%
 }
 
 tr.table-row td {
-    padding: 24px 0;
+    padding: 24px 12px 24px 0;
     border-bottom: 1px solid#D9E2EC;
     font-size: 24px;
 }
@@ -26,6 +26,8 @@ tr.table-row td {
     font-weight: 700;
 }
 
+
+
 @media (max-width: 900px) {
     tr.table-row td {
         font-size: 18px;
@@ -34,5 +36,10 @@ tr.table-row td {
     .company-title {
         font-size: 28px;
         margin-bottom: 12px;
+    }
+
+    .tableContainer {
+        display: table;
+        width: 100%;
     }
 }

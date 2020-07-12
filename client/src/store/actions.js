@@ -5,7 +5,8 @@ export const actionTypes = {
     UPDATE_SHOW_LOADING: 'UPDATE_SHOW_LOADING',
     UPDATE_SEARCH_TEXT: 'UPDATE_SEARCH_TEXT',
     UPDATE_CHART_DATA: 'UPDATE_CHART_DATA',
-    UPDATE_ALL_STOCK_INFO: 'UPDATE_ALL_STOCK_INFO'
+    UPDATE_ALL_STOCK_INFO: 'UPDATE_ALL_STOCK_INFO',
+    UPDATE_SHOW_LOADING_CHART: 'UPDATE_SHOW_LOADING_CHART'
 }
 
 export const updateValues =  (search_text, range_used) => {
@@ -38,12 +39,15 @@ export const updateChartData = (range_used) => {
     return (dispatch, getState) => {
         const symbol = getState().search_text;
         // console.log("update chart data");
+        dispatch({type: actionTypes.UPDATE_SHOW_LOADING_CHART, value: true});
         getChartData(symbol, range_used).then(data => {
             // console.log(data);
             dispatch({type: actionTypes.UPDATE_CHART_DATA,
                       chart_data: data,
                       selected_stock_range: range_used
                     });
+            dispatch({type: actionTypes.UPDATE_SHOW_LOADING_CHART, value: false});
+            
         })
     }
 }

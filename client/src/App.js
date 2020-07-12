@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 const App = (props) => {
   return (
     <div className="App">
-      {props.loading ? <LoadingPage /> : <Fragment><Header /><PerformancePage /></Fragment>};
+      {props.loading ? <LoadingPage /> : <Fragment><Header /><PerformancePage /></Fragment>}
     </div>
   );
 }

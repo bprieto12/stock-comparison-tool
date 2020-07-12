@@ -9,11 +9,11 @@ const About = props => {
         <div className="aboutContainer">
             <h2 className="aboutTitle">About Company</h2>
             <div className="descriptionAndDetails">
+                <div style={{marginBottom: 24}}>
+                    <Sector value={props.sector} />
+                    <Industry value={props.industry} />
+                </div>
                 <div className="stock-description">
-                    <div style={{marginBottom: 24}}>
-                        <Sector value={props.sector} />
-                        <Industry value={props.industry} />
-                    </div>
                     {props.description}
                 </div>
                 <div className="details">
