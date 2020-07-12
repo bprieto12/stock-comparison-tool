@@ -10,7 +10,10 @@ const Plot = createPlotlyComponent(Plotly);
 class PerformancePlot extends Component {
     render() {
         return (
-            this.props.loading ? <div className="LoadingPlot"></div> :
+            this.props.loading ? <div className="LoadingPlot">
+                                    <p style={{marginTop: 0, textAlign: "center", fontSize: 28, color: "#486581"}}>Updating Chart...</p>
+                                    <div className="loader"></div>
+                                </div> :
                 <Fragment>
                     <div>
                         <Plot
@@ -33,13 +36,17 @@ class PerformancePlot extends Component {
                                 },
                                 xaxis: {
                                     zeroline: false,
+                                    fixedrange: true
                                 },
                                 yaxis: {
-                                    zeroline: false
+                                    zeroline: false,
+                                    fixedrange: true
                                 }
                             }}
+                            config={{displayModeBar: false}}
+                            className="PlotStyle"
                             useResizeHandler={true}
-                            style={{width: '100%', height: '100%'}}
+                            style={{width: '100%', }}
                         />
                     </div>
                     <RangeSelector />
@@ -53,7 +60,7 @@ const mapStateToProps = (state) => {
     return {
         open_prices: state.chart_data.getValues(),
         time_stamps: state.chart_data.getTimeRange(),
-        loading: state.loading
+        loading: state.loading_plot
     }
 }
 

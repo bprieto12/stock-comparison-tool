@@ -16,13 +16,17 @@
     overflow: hidden;
 }
 
-.fullWidth {
-    width: 100vw;
+/* .fullWidth {
+    width: 98vw;
     position: relative;
     left: 50%;
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
+    background-color: white;
+} */
+
+.AboutContainer {
     background-color: white;
 }
 
@@ -66,6 +70,12 @@
 
     .StockPerformanceContainer {
         width: 100%;
-        margin: 0 12px 36px 12px;
+        margin-top: 0;
+        margin-left: 12px;
+        margin-right: 12px;
+        margin-bottom: 36px;
+        /* margin: 0 12px 36px 12px; */
     }
+
+    
 }

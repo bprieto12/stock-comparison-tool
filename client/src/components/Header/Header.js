@@ -7,7 +7,7 @@ class Header extends Component {
         return (
             <div className={styles.Header}>
                 <div className={styles.Logo}>
-                    <b>Simple Stock Comparsion</b>
+                    <b>Simple Stock Analysis</b>
                 </div>
                 <SearchBar />
             </div>
