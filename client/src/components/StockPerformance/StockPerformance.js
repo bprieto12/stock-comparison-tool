@@ -38,19 +38,12 @@ class StockPerformance extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        // profit_margin: state.stock_statistics.getProfitMargin(),
-        // revenue: state.stock_statistics.getRevenue(),
-        // revenue_growth: state.stock_statistics.getRevenueGrowth(),
-        // gross_profit: state.stock_statistics.getGrossProfits(),
-        // total_debt: state.stock_statistics.getTotalDebt(),
-        // operating_cash_flow: state.stock_statistics.getOperatingCashflow(),
-
-        profit_margin: "12B",
-        revenue: "13B",
-        revenue_growth: "5.6B",
-        gross_profit: "1B",
-        total_debt: "10B",
-        operating_cash_flow: "101B"
+        profit_margin: state.stock_statistics.getProfitMargin(),
+        revenue: state.stock_statistics.getRevenue(),
+        revenue_growth: state.stock_statistics.getRevenueGrowth(),
+        gross_profit: state.stock_statistics.getGrossProfits(),
+        total_debt: state.stock_statistics.getTotalDebt(),
+        operating_cash_flow: state.stock_statistics.getOperatingCashflow(),
     }
 }
 

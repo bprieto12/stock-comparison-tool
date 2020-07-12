@@ -36,14 +36,17 @@ class PerformancePlot extends Component {
                                 },
                                 xaxis: {
                                     zeroline: false,
+                                    fixedrange: true
                                 },
                                 yaxis: {
-                                    zeroline: false
+                                    zeroline: false,
+                                    fixedrange: true
                                 }
                             }}
+                            config={{displayModeBar: false}}
                             className="PlotStyle"
                             useResizeHandler={true}
-                            style={{width: '100%'}}
+                            style={{width: '100%', }}
                         />
                     </div>
                     <RangeSelector />

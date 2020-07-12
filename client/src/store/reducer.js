@@ -10,11 +10,17 @@ export const initialState = {
     stock_profile: new StockProfile(),
     selected_stock_range: "1d",
     loading: false,
-    loading_plot: false
+    loading_plot: false,
+    stock_not_found: false
 }
 
 export const rootReducer = (state = initialState, action) => {
     switch (action.type) {
+        case actionTypes.UPDATE_STOCK_NOT_FOUND:
+            return {
+                ...state,
+                stock_not_found: action.value
+            }
         case actionTypes.UPDATE_SHOW_LOADING:
             return {
                 ...state,
