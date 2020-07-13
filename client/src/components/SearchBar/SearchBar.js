@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/fontawesome-free-solid';
 import { updateValues } from '../../store/actions';
 import styles from './SearchBar.module.css';
+import { withRouter } from 'react-router';
 
 class SearchBar extends Component {
     state = {
@@ -22,14 +23,17 @@ class SearchBar extends Component {
                         value={this.state.temp_search_text} 
                         onKeyPress={(event) => {
                             if (this.state.temp_search_text !== "" && event.key === "Enter") {
-                                this.props.update(this.state.temp_search_text, this.props.chart_range_used);
+                                console.log("in redirects")
+                                this.props.history.push("/stock");
+                                // this.props.update(this.state.temp_search_text, this.props.chart_range_used);
                             }
                         }}
                         onChange={(event) => this.setState({temp_search_text: event.target.value})} />
                         <FontAwesomeIcon 
                             className={styles.SearchBtn}
                             onClick={() => {
-                                this.props.update(this.state.temp_search_text, this.props.chart_range_used)
+                                this.props.history.push("/stock");
+                                // this.props.update(this.state.temp_search_text, this.props.chart_range_used)
                             }}
                             icon={faSearch}
                         />
@@ -52,4 +56,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SearchBar));

@@ -3,11 +3,14 @@ import HistoricalStockData from "../classes/HistoricalStockData";
 import StockStatistics from "../classes/StockStatistics";
 import StockProfile from "../classes/StockProfile";
 
+import { mutual_fund_profile_one } from '../mocks/mockStockProfileData';
+import { mutual_fund_stats_one } from '../mocks/mockStockStatsData';
+
 export const initialState = {
     search_text: "",
     chart_data: new HistoricalStockData(),
-    stock_statistics: new StockStatistics(),
-    stock_profile: new StockProfile(),
+    stock_statistics: new StockStatistics(mutual_fund_stats_one),
+    stock_profile: new StockProfile(mutual_fund_profile_one),
     selected_stock_range: "1d",
     loading: false,
     loading_plot: false,

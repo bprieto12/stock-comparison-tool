@@ -17,23 +17,33 @@ const PriceIndicatorContainer = (props) => {
         volatilityText = "High"
     }
 
-    const open_price = <ThreeItemIndicator low={`L ${props.open_low}`} middle={props.open} high={`H ${props.open_high}`} />
-    const forecastPrice = <ThreeItemIndicator low={`L ${props.forecast_low}`} middle={props.forecast} high={`H ${props.forecast_high}`} />
+    let open_low = "",
+    open_high = "",
+    forecast_low = "",
+    forecast_high = "";
+
+    if (props.open_low && props.open_high) {
+        open_low = `L ${props.open_low}`;
+        open_high = `H ${props.open_high}`;
+    }
+
+    if (props.forecast_low && props.forecast_high) {
+        forecast_low = `L ${props.forecast_low}`;
+        forecast_high = `H ${props.forecast_high}`;
+    }
+
+    const open_price = <ThreeItemIndicator low={open_low} middle={props.open} high={open_high} />
+    const forecastPrice = <ThreeItemIndicator low={forecast_low} middle={props.forecast} high={forecast_high} />
     const volatility = <ThreeItemIndicator middle={volatilityText} low={`Beta: ${props.beta}`} />
     const p_e = <ThreeItemIndicator middle={props.forwardPE} />
-
-    // const open_price = <ThreeItemIndicator low={`L 73.64`} middle={"75.04"} high={`H 75.09`} />
-    // const forecastPrice = <ThreeItemIndicator low={`L 66.50`} middle={"80.00"} high={`H 95.00`} />
-    // const volatility = <ThreeItemIndicator middle={"Low"} high={`Beta: 0.8`} />
-    // const p_e = <ThreeItemIndicator middle={"28.05"} />
 
     return (
         <div className="pic-container">
             {!props.recommendation ? "" : <div className="Recommendation">{`Recommendation: ${props.recommendation}`}</div>}
             <PriceIndicator indicatorContent={open_price} indicatorName="Open" />
-            <PriceIndicator indicatorContent={forecastPrice} indicatorName="Forecast" />
-            <PriceIndicator indicatorContent={p_e} indicatorName="P/E" />
-            <PriceIndicator indicatorContent={volatility} indicatorName="Volatility" />
+            {props.forecast ? <PriceIndicator indicatorContent={forecastPrice} indicatorName="Forecast" /> : ""}
+            {props.forwardPE ? <PriceIndicator indicatorContent={p_e} indicatorName="P/E" /> : ""}
+            {props.beta ? <PriceIndicator indicatorContent={volatility} indicatorName="Volatility" /> : ""}
         </div>
     );
 };
