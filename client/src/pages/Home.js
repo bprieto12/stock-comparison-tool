@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import SearchBar from '../components/SearchBar/SearchBar';
+import { Redirect } from 'react-router';
+import { connect } from 'react-redux';
 import './Home.css';
 
 class Home extends Component {
     render() {
+        if (this.props.redirectTo) {
+            return <Redirect to={this.props.redirectTo} />
+        }
+
         return (
             <div className="Home">
                 <div className="HomeContent">
@@ -24,4 +30,10 @@ class Home extends Component {
     }
 }
 
-export default Home;
+const mapStateToProps = (state) => {
+    return {
+        redirectTo: state.redirectTo
+    }
+}
+
+export default connect(mapStateToProps)(Home);

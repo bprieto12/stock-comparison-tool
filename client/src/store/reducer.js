@@ -14,7 +14,8 @@ export const initialState = {
     selected_stock_range: "1d",
     loading: false,
     loading_plot: false,
-    stock_not_found: false
+    stock_not_found: false,
+    redirectTo: null
 }
 
 export const rootReducer = (state = initialState, action) => {
@@ -62,6 +63,11 @@ export const rootReducer = (state = initialState, action) => {
                 chart_data: action.chart_data,
                 stock_statistics: action.stock_statistics,
                 stock_profile: action.stock_profile
+            }
+        case actionTypes.REDIRECT:
+            return {
+                ...state,
+                redirectTo: action.payload
             }
         default:
             return state;

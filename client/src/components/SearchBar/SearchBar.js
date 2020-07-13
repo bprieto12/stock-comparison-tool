@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/fontawesome-free-solid';
-import { updateValues } from '../../store/actions';
+import { updateValues, redirect } from '../../store/actions';
 import styles from './SearchBar.module.css';
 import { withRouter } from 'react-router';
 
@@ -23,17 +23,17 @@ class SearchBar extends Component {
                         value={this.state.temp_search_text} 
                         onKeyPress={(event) => {
                             if (this.state.temp_search_text !== "" && event.key === "Enter") {
-                                console.log("in redirects")
-                                this.props.history.push("/stock");
-                                // this.props.update(this.state.temp_search_text, this.props.chart_range_used);
+                                this.props.update(this.state.temp_search_text, this.props.chart_range_used);
+                                this.props.redirect('/stock');
                             }
                         }}
                         onChange={(event) => this.setState({temp_search_text: event.target.value})} />
                         <FontAwesomeIcon 
                             className={styles.SearchBtn}
                             onClick={() => {
-                                this.props.history.push("/stock");
-                                // this.props.update(this.state.temp_search_text, this.props.chart_range_used)
+                                // this.props.history.push("/stock");
+                                this.props.update(this.state.temp_search_text, this.props.chart_range_used);
+                                this.props.redirect('/stock');
                             }}
                             icon={faSearch}
                         />
@@ -52,7 +52,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        update: (symbol, range_used) => dispatch(updateValues(symbol, range_used))
+        update: (symbol, range_used) => dispatch(updateValues(symbol, range_used)),
+        redirect: (link) => dispatch(redirect(link))
     }
 }
 
