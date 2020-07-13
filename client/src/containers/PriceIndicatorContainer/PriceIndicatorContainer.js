@@ -39,7 +39,7 @@ const PriceIndicatorContainer = (props) => {
 
     return (
         <div className="pic-container">
-            {!props.recommendation ? "" : <div className="Recommendation">{`Recommendation: ${props.recommendation}`}</div>}
+            <Recommendation recommendation={props.recommendation} />
             <PriceIndicator indicatorContent={open_price} indicatorName="Open" />
             {props.forecast ? <PriceIndicator indicatorContent={forecastPrice} indicatorName="Forecast" /> : ""}
             {props.forwardPE ? <PriceIndicator indicatorContent={p_e} indicatorName="P/E" /> : ""}
@@ -47,6 +47,24 @@ const PriceIndicatorContainer = (props) => {
         </div>
     );
 };
+
+const Recommendation = (props) => {
+    if (!props.recommendation) {
+        return "";
+    } else {
+        let classes = "Rec";
+        if (props.recommendation === "buy") {
+            classes += " Buy";
+        } else {
+            classes += " DontBuy";
+        }
+        return (
+            <div className={classes}>
+                {`Recommendation: ${props.recommendation.toUpperCase()}`}
+            </div>
+        );
+    }
+}
 
 const mapStateToProps = (state) => {
     return {
