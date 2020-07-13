@@ -4,13 +4,24 @@ import Header from './components/Header/Header';
 import PerformancePage from './components/PerformancePage/PerformancePage';
 import LoadingPage from './containers/LoadingPage/LoadingPage';
 import { connect } from 'react-redux';
-
+import {withRouter} from 'react-router';
+import {
+        Switch,
+        Route  } from 'react-router-dom';
+import Home from './pages/Home';
 
 const App = (props) => {
   return (
-    <div className="App">
-      {props.loading ? <LoadingPage /> : <Fragment><Header /><PerformancePage /></Fragment>}
-    </div>
+      <div className="App">
+        <Switch>
+          <Route path="/stock">
+            {props.loading ? <LoadingPage /> : <Fragment><Header /><PerformancePage /></Fragment>}
+          </Route>
+          <Route path="/">
+            {props.loading ? <LoadingPage /> : <Home />}
+          </Route>
+        </Switch>
+      </div>
   );
 }
 
@@ -21,4 +32,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(App);
+export default withRouter(connect(mapStateToProps)(App));

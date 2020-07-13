@@ -7,7 +7,8 @@ export const actionTypes = {
     UPDATE_CHART_DATA: 'UPDATE_CHART_DATA',
     UPDATE_ALL_STOCK_INFO: 'UPDATE_ALL_STOCK_INFO',
     UPDATE_SHOW_LOADING_CHART: 'UPDATE_SHOW_LOADING_CHART',
-    UPDATE_STOCK_NOT_FOUND: 'UPDATE_STOCK_NOT_FOUND'
+    UPDATE_STOCK_NOT_FOUND: 'UPDATE_STOCK_NOT_FOUND',
+    REDIRECT: 'REDIRECT'
 }
 
 export const updateValues =  (search_text, range_used) => {
@@ -53,3 +54,11 @@ export const updateChartData = (range_used) => {
         })
     }
 }
+
+
+export const redirect = link => {
+  
+  return (dispatch, getState) => {
+      dispatch({ type: actionTypes.REDIRECT, payload: link });
+  }
+};

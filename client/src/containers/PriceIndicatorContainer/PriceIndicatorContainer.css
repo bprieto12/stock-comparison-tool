@@ -2,15 +2,23 @@
     margin-left: 80px;
 }
 
-.Recommendation {
+.Rec {
     display: inline-block;
     font-size: 18px;
     font-weight: 700;
-    background-color: #FFEEEE;
-    color: #A61B1B;
     padding: 12px;
     margin-bottom: 12px;
     border-radius: 14px;
+}
+
+.Buy {
+    background-color: #EFFCF6;
+    color: #147D64;
+}
+
+.DontBuy {
+    background-color: #FFEEEE;
+    color: #A61B1B;
 }
 
 @media (max-width: 900px) {

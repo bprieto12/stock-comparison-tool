@@ -105,8 +105,13 @@ class StockStatistics {
     getCurrentOpenPrice = () => {
         if (!this.raw_data) return;
         try {
-            return this.raw_data.data.price.regularMarketOpen.fmt;
+            if (this.raw_data.data.price.quoteType === 'MUTUALFUND') {
+                return this.raw_data.data.price.regularMarketPrice.fmt;
+            } else {
+                return this.raw_data.data.price.regularMarketOpen.fmt;
+            }
         } catch (err) {
+            console.log(err);
             return;
         }
     }

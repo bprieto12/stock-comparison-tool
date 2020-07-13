@@ -6,57 +6,101 @@ class StockProfile {
 
     getSector = () => {
         if (this.is_empty) return;
-        return this.raw_data.data.assetProfile.sector;
+        try {
+            return this.raw_data.data.assetProfile.sector;
+        } catch (err) {
+            return;
+        }
     }
 
     getIndustry = () => {
         if (this.is_empty) return;
-        return this.raw_data.data.assetProfile.industry;
+        try {
+            return this.raw_data.data.assetProfile.industry;
+        } catch (err) {
+            return;
+        }
     }
 
     getNumEmployees = () => {
         if (this.is_empty) return;
-        return this.raw_data.data.assetProfile.fullTimeEmployees;
+        try {
+            return this.raw_data.data.assetProfile.fullTimeEmployees;
+        } catch (err) {
+            return;
+        }
     }
 
     getWebsite = () => {
         if (this.is_empty) return;
-        return this.raw_data.data.assetProfile.website;
+        try {
+            return this.raw_data.data.assetProfile.website;
+        } catch (err) {
+            return;
+        }
     }
 
     getCity = () => {
         if (this.is_empty) return;
-        return this.raw_data.data.assetProfile.city;
+        try {
+            return this.raw_data.data.assetProfile.city;
+        } catch (err) {
+            return;
+        }
     }
 
     getState = () => {
         if (this.is_empty) return;
-        return this.raw_data.data.assetProfile.state;
+        try {
+            return this.raw_data.data.assetProfile.state;
+        } catch (err) {
+            return;
+        }
     }
 
     getCountry = () => {
         if (this.is_empty) return;
-        return this.raw_data.data.assetProfile.country;
+        try {
+            return this.raw_data.data.assetProfile.country;
+        } catch (err) {
+            return;
+        }
     }
 
     getBusinessSummary = () => {
         if (this.is_empty) return;
-        return this.raw_data.data.assetProfile.longBusinessSummary;
+        try {
+            return this.raw_data.data.assetProfile.longBusinessSummary;
+        } catch (err) {
+            return "";
+        }
     }
 
     getFullName = () => {
         if (this.is_empty) return;
-        return this.raw_data.data.price.longName;
+        try {
+            return this.raw_data.data.price.longName;
+        } catch (err) {
+            return;
+        }
     }
 
     getInstrumentType = () => {
         if (this.is_empty) return;
-        return this.raw_data.data.price.quoteType;
+        try {
+            return this.raw_data.data.price.quoteType;
+        } catch (err) {
+            return;
+        }
     }
 
     getStockSymbol = () => {
         if (this.is_empty) return;
-        return this.raw_data.data.price.symbol;
+        try {
+            return this.raw_data.data.price.symbol;
+        } catch (err) {
+            return;
+        }
     }
 }
 

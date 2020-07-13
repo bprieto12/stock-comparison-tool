@@ -1,0 +1,40 @@
+.Home {
+    background-color: #F0F4F8;
+    text-align: center;
+    color: #334E68;
+    min-height: 900px;
+}
+
+.HomeContent {
+    width: 500px;
+    margin: auto;
+}
+
+.title {
+    padding-top: 54px;
+    padding-bottom: 24px;
+    font-size: 32px;
+    margin-top: 0;
+}
+
+ul {
+    padding-inline-start: 0;
+}
+
+ul li {
+    list-style-type: none;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.list-instructions {
+    text-align: left;
+}
+
+@media (max-width: 550px) {
+    .HomeContent {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 16px;
+    }
+}
