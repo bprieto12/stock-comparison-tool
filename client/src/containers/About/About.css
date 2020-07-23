@@ -6,6 +6,20 @@
     line-height: 1.5;
 }
 
+.show-btn {
+    cursor: pointer;
+    margin-top: 24px;
+    text-align: center;
+}
+
+.show-btn:hover {
+    color: blue;
+}
+
+.show-btn:active {
+    color: magenta;
+}
+
 .details {
     width: 50%;
     float: left;
