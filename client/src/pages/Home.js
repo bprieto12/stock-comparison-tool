@@ -23,6 +23,9 @@ class Home extends Component {
                             <li>3. ...</li>
                             <li>4. Profit</li>
                         </ul>
+                        <p style={{textAlign: "left", marginTop: 42}}>
+                            <i>Don't know any stock ticker symbols?  Try any of these ones: </i><b>DIS</b>,<b>TSLA</b>,<b>COST</b>
+                        </p>
                     </div>
                 </div>
             </div>
